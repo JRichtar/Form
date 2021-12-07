@@ -5,47 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Formulář"
         mc:Ignorable="d"
-        Title="Form App" Height="450" Width="800" MinHeight="450" MinWidth="800" MaxHeight="450" MaxWidth="800">
-    <Grid Background="Orange">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="160*"/>
-            <RowDefinition Height="55*"/>
-        </Grid.RowDefinitions>
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="155*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="labelFn" Content="First Name:" FontSize="18" FontFamily="Arial Black" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"></Label>
-        <Label x:Name="labelLn" Content="Last Name:" FontSize="18" FontFamily="Arial Black" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0"></Label>
-        <Label x:Name="labelBd" Content="Birth Date:" FontSize="18" FontFamily="Arial Black" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0"></Label>
-        <Label x:Name="labelEd" Content="Highest Education:" FontSize="18" FontFamily="Arial Black" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0"></Label>
-        <Label x:Name="labelJob" Content="Job:" FontSize="18" FontFamily="Arial Black" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0"></Label>
-        <Label x:Name="labelPm" Content="Payment:" FontSize="18" FontFamily="Arial Black" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="0"></Label>
-        <Label x:Name="labelErrorFn" Content="{Binding FnError}" Visibility="{Binding FnErrorVisible}" Foreground="Red" FontSize="12" FontFamily="Arial Black" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="4" Margin="0,0,0,10"></Label>
-        <Label x:Name="labelErrorLn" Content="{Binding LnError}" Visibility="{Binding LnErrorVisible}" Foreground="Red" FontSize="12" FontFamily="Arial Black" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4" Margin="0,6,0,0"></Label>
-        <Label x:Name="labelErrorBd" Content="{Binding BdError}" Visibility="{Binding BdErrorVisible}" Foreground="Red" FontSize="12" FontFamily="Arial Black" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="4" Margin="0,6,0,0"></Label>
-        <Label x:Name="labelErrorJob" Content="{Binding JobError}" Visibility="{Binding JobErrorVisible}" Foreground="Red" FontSize="12" FontFamily="Arial Black" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="4" Margin="0,6,0,0"></Label>
-        <Label x:Name="labelErrorPm" Content="{Binding PmError}" Visibility="{Binding PmErrorVisible}" Foreground="Red" FontSize="12" FontFamily="Arial Black" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="4" Margin="0,10,0,0"></Label>
-        <Label x:Name="labelLogin" FontSize="18" FontFamily="Arial Black" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="0"></Label>
-        <ComboBox x:Name="comboboxEd" Background="#FFFF5100" FontSize="12" FontFamily="Arial Black" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2" Margin="6">
-            <ComboBoxItem>ZŠ</ComboBoxItem>
-            <ComboBoxItem>SŠ</ComboBoxItem>
-            <ComboBoxItem>VŠ</ComboBoxItem>
-        </ComboBox>
-        <TextBox x:Name="textboxFn" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" Background="#FFFF5100" FontSize="14" FontFamily="Arial Black" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" Margin="0,0,0,10" MinWidth="150" MaxWidth="150" MinHeight="20" MaxHeight="20" TextChanged="textboxFn_TextChanged"></TextBox>
-        <TextBox x:Name="textboxLn" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" Background="#FFFF5100" FontSize="14" FontFamily="Arial Black" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" MinWidth="150" MaxHeight="150" Grid.RowSpan="2" Margin="0,6,0,0" MinHeight="20" MaxWidth="20" TextChanged="textboxLn_TextChanged"></TextBox>
-        <TextBox x:Name="textboxBd" Text="{Binding YearOfBirth, UpdateSourceTrigger=PropertyChanged}" Background="#FFFF5100" FontSize="14" FontFamily="Arial Black" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" MinWidth="150" MaxHeight="150" Grid.RowSpan="2" Margin="0,6,0,0" MinHeight="20" MaxWidth="20" TextChanged="textboxBd_TextChanged"></TextBox>
-        <TextBox x:Name="textboxJob" Text="{Binding Job, UpdateSourceTrigger=PropertyChanged}" Background="#FFFF5100" FontSize="14" FontFamily="Arial Black" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="2" MinWidth="150" MaxHeight="150" Grid.RowSpan="2" Margin="0,6,0,0" MinHeight="20" MaxWidth="20" TextChanged="textboxJob_TextChanged"></TextBox>
-        <TextBox x:Name="textboxPm" Text="{Binding Payment, UpdateSourceTrigger=PropertyChanged}" Background="#FFFF5100" FontSize="14" FontFamily="Arial Black" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" MinWidth="150" MaxHeight="150" Grid.RowSpan="2" Margin="0,6,0,0" MinHeight="20" MaxWidth="20" TextChanged="textboxPm_TextChanged"></TextBox>
-        <Button x:Name="button1" Content="Login " FontSize="18" FontFamily="Arial Black" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" MinWidth="100" Margin="0,0,0,5" Padding="11,1,1,1" BorderThickness="5,3,5,3" ClipToBounds="True" Background="#FFFF5100" Click="button1_Click"></Button>
-        <Button x:Name="button2" Content="End Program" FontSize="18" FontFamily="Arial Black" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="2" MinWidth="150 " Background="#FFFF5100" Visibility="Hidden"></Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <ListView Name="Universities" Grid.Column="0" Grid.RowSpan="5" ItemsSource="{Binding .}"
+                  SelectionChanged="Universities_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Key}" FontWeight="DemiBold"/>
+                        <TextBlock Text=", "/>
+                        <TextBlock Text="{Binding Value.State}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Label Content="State:"/>
+            <Label Content="{Binding State}"/>
+        </StackPanel>
+        <Label Content="{Binding Established}" Grid.Column="1" Grid.Row="1"/>
+        <Label Content="{Binding Address}" Grid.Column="1" Grid.Row="2"/>
+        <Label Content="{Binding SuccessRate}" Grid.Column="1" Grid.Row="3"/>
+        <Label Content="{Binding Tuition}" Grid.Column="1" Grid.Row="4"/>
     </Grid>
 </Window>
